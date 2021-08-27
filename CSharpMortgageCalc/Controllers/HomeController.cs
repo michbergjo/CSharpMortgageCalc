@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CSharpMortgageCalc.Helpers;
 
 namespace CSharpMortgageCalc.Controllers
 {
@@ -35,6 +36,19 @@ namespace CSharpMortgageCalc.Controllers
             loan.Term = 60;
 
             return View(loan);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult App(Loan loan)
+        {
+            //calculate the loan and get the payments 
+            var loanHelper = new LoanHelper();
+
+            Loan newLoan = loanHelper.GetPayments(loan);
+
+
+            return View(newLoan);
         }
 
         public IActionResult Privacy()
