@@ -29,14 +29,14 @@
                 <p>Your Monthly Payments</p>
             </div>
             <p id="payment">
-                @Model.Payment.ToString("C")
+                @Model.Payment.ToString("C, en-US")
             </p>
             <div class="row">
                 <div class="col-6">
                     <label class="text-left">Total Prinicipal</label>
                 </div>
                 <div class="col-6 text-right" id="totalPrincipal">
-                    @Model.Amount.ToString("C")
+                    @Model.Amount.ToString("c")
                 </div>
                 <div class="col-6">
                     <label class="text-left">Total Interest</label>
